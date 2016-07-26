@@ -4,8 +4,8 @@ env:
     - IMAGE_TAG='slave'
 build:
   pre_ci:
-    - if [[ $IMAGE_TAG == 'master' ]]; then sed -i -e s/MASTER/yes/g module.yaml;sed -i -e s/SLAVE/no/g module.yaml; fi
-    - if [[ $IMAGE_TAG == 'slave' ]]; then sed -i -e s/MASTER/no/g module.yaml;sed -i -e s/SLAVE/yes/g module.yaml; fi
+    - if [[ $IMAGE_TAG == 'master' ]]; then mv module.master.yaml module.yaml; fi
+    - if [[ $IMAGE_TAG == 'slave' ]]; then mv module.slave.yaml module.yaml; fi
     - docker build --rm=true --pull=true --force-rm=true --no-cache=true --tag=luckyraul/powerdns:$IMAGE_TAG .
   pre_ci_boot:
     image_name: luckyraul/powerdns
