@@ -12,7 +12,7 @@ build:
     image_tag: $IMAGE_TAG
     pull: false
   ci:
-    - true
+    - pdns_server --version
   push:
      - docker push luckyraul/powerdns:$IMAGE_TAG
 integrations:
