@@ -5,6 +5,9 @@ export PARAMS="--daemon=no"
 if [[ "x"$AXFR_IPS != "x" ]]; then
     export PARAMS="$PARAMS --allow-axfr-ips=$AXFR_IPS  --only-notify=$AXFR_IPS"
 fi
+if [[ "x"$API != "x" ]]; then
+    export PARAMS="$PARAMS --webserver=yes --webserver-address=0.0.0.0 --api=yes --api-key=$API_PASSWORD"
+fi
 
 if [[ "x"$MODE_SLAVE != "x" && "x"$MODE_BIND != "x" ]]; then
     touch /var/lib/powerdns/named-superslave.conf
