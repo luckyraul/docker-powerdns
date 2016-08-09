@@ -13,6 +13,7 @@ if [[ "x"$MODE_SQLITE != "x" ]]; then
     if [ ! -f /var/lib/powerdns/pdns.sqlite3 ]; then
       cp /usr/share/pdns-backend-sqlite3/pdns.local.gsqlite3.conf /etc/powerdns/pdns.d/pdns.local.gsqlite3.conf
       sqlite3 /var/lib/powerdns/pdns.sqlite3 < /usr/share/doc/pdns-backend-sqlite3/schema.sqlite3.sql
+      chown pdns:pdns /var/lib/powerdns/pdns.sqlite3
     fi
 fi
 
