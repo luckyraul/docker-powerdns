@@ -6,7 +6,7 @@ if [[ "x"$AXFR_IPS != "x" ]]; then
     export PARAMS="$PARAMS --allow-axfr-ips=$AXFR_IPS  --only-notify=$AXFR_IPS"
 fi
 if [[ "x"$API != "x" ]]; then
-    export PARAMS="$PARAMS --webserver=yes --webserver-address=0.0.0.0 --api=yes --api-key=$API_PASSWORD"
+    export PARAMS="$PARAMS --webserver=yes --webserver-address=$API_ADDR --api=yes --api-key=$API_PASSWORD"
 fi
 
 if [[ "x"$MODE_SQLITE != "x" ]]; then
