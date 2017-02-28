@@ -1,0 +1,7 @@
+from: debian:jessie-slim
+cmd: '/entrypoint.sh'
+maintainer: nikita@mygento.ru
+expose: 53
+inventory: false
+env:
+  - DEBIAN_FRONTEND=noninteractive

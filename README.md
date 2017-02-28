@@ -1,4 +1,8 @@
 # docker-powerdns
 Docker image for PowerDNS
 
-[![](https://badge.imagelayers.io/mygento/powerdns.svg)](https://imagelayers.io/?images=mygento/powerdns)
+[![](https://images.microbadger.com/badges/version/luckyraul/powerdns:master.svg)](https://microbadger.com/images/luckyraul/powerdns:master)
+[![](https://images.microbadger.com/badges/image/luckyraul/powerdns:master.svg)](https://microbadger.com/images/luckyraul/powerdns:master)
+
+[![](https://images.microbadger.com/badges/version/luckyraul/powerdns:slave.svg)](https://microbadger.com/images/luckyraul/powerdns:slave)
+[![](https://images.microbadger.com/badges/image/luckyraul/powerdns:slave.svg)](https://microbadger.com/images/luckyraul/powerdns:slave)

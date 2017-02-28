@@ -4,9 +4,11 @@ env:
     - IMAGE_TAG='slave'
 build:
   pre_ci:
-    - if [[ $IMAGE_TAG == 'master' ]]; then mv module.master.yaml module.yaml; fi
-    - if [[ $IMAGE_TAG == 'slave' ]]; then mv module.slave.yaml module.yaml; fi
-    - docker build --rm=true --pull=true --force-rm=true --no-cache=true --tag=luckyraul/powerdns:$IMAGE_TAG .
+    - apt-get install ruby
+    - gem install puppet
+    - puppet module install puppetlabs/image_build
+    - sed -ie 's/--show_diff//g' /etc/puppetlabs/code/modules/image_build/templates/Dockerfile.erb
+    - puppet docker build --image-name luckyraul/powerdns:$IMAGE_TAG-new
   pre_ci_boot:
     image_name: luckyraul/powerdns
     image_tag: $IMAGE_TAG
@@ -14,7 +16,7 @@ build:
   ci:
     - pdns_server --version || true
   push:
-     - docker push luckyraul/powerdns:$IMAGE_TAG
+    - docker push luckyraul/powerdns:$IMAGE_TAG-new
 integrations:
     hub:
       - integrationName: Docker
