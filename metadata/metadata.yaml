@@ -1,7 +1,7 @@
 from: debian:jessie-slim
 cmd: '/entrypoint.sh'
 maintainer: nikita@mygento.ru
-expose: 53
+expose: 53,53/udp
 inventory: false
 env:
   - DEBIAN_FRONTEND=noninteractive
