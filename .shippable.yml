@@ -11,7 +11,7 @@ build:
     - puppet docker build --image-name luckyraul/powerdns:$IMAGE_TAG-new
   pre_ci_boot:
     image_name: luckyraul/powerdns
-    image_tag: $IMAGE_TAG
+    image_tag: $IMAGE_TAG-new
     pull: false
   ci:
     - pdns_server --version || true
