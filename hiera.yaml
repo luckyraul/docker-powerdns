@@ -9,4 +9,4 @@ hierarchy:
     path: "nodes/%{::hostname}.yaml"
 
   - name: "Common"
-path: "common.yaml"
+    path: "common.yaml"
