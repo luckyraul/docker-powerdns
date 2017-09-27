@@ -2,15 +2,14 @@ classes:
     - powerdns
 
 powerdns::server: true
-powerdns::server_backends: 
+powerdns::server_backends:
     - pdns-backend-sqlite3
 powerdns::server_config:
     local-address: '0.0.0.0'
     daemon: 'no'
-    disable-axfr: 'no'
     guardian: 'no'
-    master: 'yes'
-    slave: 'no'
+
 powerdns::server_service_ensure: 'stopped'
 powerdns::server_service_enable: false
 powerdns::recursor: false
+powerdns::docker: true

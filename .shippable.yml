@@ -4,9 +4,13 @@ env:
     - IMAGE_TAG='slave'
 build:
   pre_ci:
-    - if [[ $IMAGE_TAG == 'master' ]]; then mv module.master.yaml module.yaml; fi
-    - if [[ $IMAGE_TAG == 'slave' ]]; then mv module.slave.yaml module.yaml; fi
-    - docker build --rm=true --pull=true --force-rm=true --no-cache=true --tag=luckyraul/powerdns:$IMAGE_TAG .
+    - apt-get install -qqy curl
+    - gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
+    - curl -sSL https://get.rvm.io | grep -v __rvm_print_headline | bash -s stable --ruby
+    - source /usr/local/rvm/scripts/rvm
+    - gem install puppet --no-ri --no-rdoc
+    - puppet module install puppetlabs/image_build
+    - puppet docker build --image-name luckyraul/powerdns:$IMAGE_TAG --no-show-diff
   pre_ci_boot:
     image_name: luckyraul/powerdns
     image_tag: $IMAGE_TAG
@@ -14,7 +18,7 @@ build:
   ci:
     - pdns_server --version || true
   push:
-     - docker push luckyraul/powerdns:$IMAGE_TAG
+    - docker push luckyraul/powerdns:$IMAGE_TAG
 integrations:
     hub:
       - integrationName: Docker

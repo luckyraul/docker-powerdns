@@ -1,0 +1,4 @@
+powerdns::server_config:
+    master: 'yes'
+    slave: 'no'
+    disable-axfr: 'no'
