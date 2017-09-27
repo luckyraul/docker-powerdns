@@ -6,20 +6,19 @@ build:
   pre_ci:
     - apt-get install -qqy curl
     - gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
-    - curl -L https://get.rvm.io | bash -s stable --ruby
+    - curl -sSL https://get.rvm.io | grep -v __rvm_print_headline | bash -s stable --ruby
     - source /usr/local/rvm/scripts/rvm
     - gem install puppet --no-ri --no-rdoc
     - puppet module install puppetlabs/image_build
-    - sed -ie 's/--show_diff//g' /etc/puppetlabs/code/modules/image_build/templates/Dockerfile.erb
-    - puppet docker build --image-name luckyraul/powerdns:$IMAGE_TAG-new
+    - puppet docker build --image-name luckyraul/powerdns:$IMAGE_TAG --no-show-diff
   pre_ci_boot:
     image_name: luckyraul/powerdns
-    image_tag: $IMAGE_TAG-new
+    image_tag: $IMAGE_TAG
     pull: false
   ci:
     - pdns_server --version || true
   push:
-    - docker push luckyraul/powerdns:$IMAGE_TAG-new
+    - docker push luckyraul/powerdns:$IMAGE_TAG
 integrations:
     hub:
       - integrationName: Docker

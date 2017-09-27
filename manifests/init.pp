@@ -1,2 +1,2 @@
-hiera_include('classes')
+lookup('classes', {merge => unique}).include
 include 'dummy_service'
