@@ -2,3 +2,6 @@ powerdns::server_config:
     master: 'yes'
     slave: 'no'
     disable-axfr: 'no'
+    local-address: '0.0.0.0'
+    daemon: 'no'
+    guardian: 'no'

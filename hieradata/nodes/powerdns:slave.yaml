@@ -5,6 +5,9 @@ powerdns::server_config:
     disable-axfr: 'yes'
     master: 'no'
     slave: 'yes'
+    local-address: '0.0.0.0'
+    daemon: 'no'
+    guardian: 'no'
 
 powerdns::config::files:
     pdns.simplebind:
