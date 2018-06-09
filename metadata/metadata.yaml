@@ -1,7 +1,9 @@
 from: debian:stretch #not schema in slim
 cmd: '/entrypoint.sh'
 maintainer: nikita@mygento.ru
-expose: 53,53/udp
+expose: 53,53/udp,8001
 inventory: false
 env:
   - DEBIAN_FRONTEND=noninteractive
+  - API_ALLOW=127.0.0.1
+  - API_ADDR=0.0.0.0
