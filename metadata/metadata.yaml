@@ -3,6 +3,7 @@ cmd: '/entrypoint.sh'
 maintainer: nikita@mygento.ru
 expose: 53,53/udp,8001
 inventory: false
+volume: /var/lib/powerdns
 env:
   - DEBIAN_FRONTEND=noninteractive
   - API_ALLOW=127.0.0.1
