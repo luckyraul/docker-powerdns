@@ -4,6 +4,7 @@ classes:
 powerdns::server: true
 powerdns::server_backends:
     - pdns-backend-sqlite3
+    - pdns-backend-mysql
 
 powerdns::server_service_ensure: 'stopped'
 powerdns::server_service_enable: false
