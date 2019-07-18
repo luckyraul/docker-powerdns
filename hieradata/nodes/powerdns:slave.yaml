@@ -5,13 +5,12 @@ powerdns::server_config:
     disable-axfr: 'yes'
     master: 'no'
     slave: 'yes'
+    superslave: 'yes'
     local-address: '0.0.0.0'
     daemon: 'no'
     guardian: 'no'
 
 powerdns::config::files:
-    pdns.simplebind:
+    bind:
         config_hash:
-            bind-supermaster-config: '/var/lib/powerdns/named-superslave.conf'
             bind-supermasters: '/etc/powerdns/supermasters.conf'
-            bind-supermaster-destdir: '/var/lib/powerdns/zones'
