@@ -1,4 +1,4 @@
-from: debian:buster #not schema in slim
+from: debian:bullseye #not schema in slim
 cmd: '/entrypoint.sh'
 maintainer: nikita@mygento.ru
 expose: 53,53/udp,8001
