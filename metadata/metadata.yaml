@@ -1,11 +1,11 @@
-from: debian:bullseye #not schema in slim
+from: debian:bookworm #not schema in slim
 cmd: '/entrypoint.sh'
 maintainer: nikita@mygento.ru
-expose: 53,53/udp,8001
+expose: 53,53/udp,8081
 inventory: false
 volume: /var/lib/powerdns
+puppet_agent_version: '7.32.1'
 env:
   - DEBIAN_FRONTEND=noninteractive
   - API_ALLOW=127.0.0.1
   - API_ADDR=0.0.0.0
-  - CODENAME=stretch

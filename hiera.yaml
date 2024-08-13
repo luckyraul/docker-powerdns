@@ -5,8 +5,8 @@ defaults:
   data_hash: yaml_data
 
 hierarchy:
-  - name: "Per-node data (yaml version)"
-    path: "nodes/%{::hostname}.yaml"
+  - name: 'Per-node data (yaml version)'
+    path: 'nodes/%{::hostname}.yaml'
 
-  - name: "Common"
-    path: "common.yaml"
+  - name: 'Common'
+    path: 'common.yaml'

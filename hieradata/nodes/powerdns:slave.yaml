@@ -1,16 +1,16 @@
 classes:
-    - powerdns::config
+  - powerdns::config
 
 powerdns::server_config:
-    disable-axfr: 'yes'
-    master: 'no'
-    slave: 'yes'
-    superslave: 'yes'
-    local-address: '0.0.0.0'
-    daemon: 'no'
-    guardian: 'no'
+  disable-axfr: 'yes'
+  primary: 'no'
+  secondary: 'yes'
+  autosecondary: 'yes'
+  local-address: '0.0.0.0'
+  daemon: 'no'
+  guardian: 'no'
 
 powerdns::config::files:
-    bind:
-        config_hash:
-            bind-supermasters: '/etc/powerdns/supermasters.conf'
+  bind:
+    config_hash:
+      bind-autoprimaries: '/etc/powerdns/supermasters.conf'

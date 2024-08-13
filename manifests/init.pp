@@ -1,2 +1,2 @@
-lookup('classes', {merge => unique}).include
+lookup('classes', { merge => unique }).include
 include 'dummy_service'
